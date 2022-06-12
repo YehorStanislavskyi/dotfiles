@@ -5,9 +5,5 @@
 ### vim install 
 
 ```
-sudo apt install vim -y && to &&echo "set number 
-set syntax on 
-set cursorline
-set cursorcolumn
-" >> .vimrc
+sudo apt install vim -y && echo -e "set number\nset cursorline\nsyntax" on  > .vimrc
 ```
