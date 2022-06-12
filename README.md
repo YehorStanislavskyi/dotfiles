@@ -7,3 +7,7 @@
 ```
 sudo apt install vim -y && echo -e "set number\nset cursorline\nsyntax" on > .vimrc
 ```
+ ### dropbox 
+ 
+ sudo apt install -y dropbox
+ 
