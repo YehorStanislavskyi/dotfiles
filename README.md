@@ -19,7 +19,7 @@ sudo apt update
 sudo apt install flatpak
     
  ```
-###Зависимости i3 
+### Зависимости i3 
 
 maim 
 xclip
