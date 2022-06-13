@@ -1,7 +1,7 @@
 set $mod Mod4
 
 #switch keyboard layout via capslock
-exec_always "setxkbmap -model pc104 -layout us,ru -variant  -option grp:caps_toggle"
+exec_always "setxkbmap -model pc104 -layout us,ru -variant -option grp:caps_toggle"
 
 default_border pixel 0
 default_floating_border normal
@@ -113,20 +113,22 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-exec_always --no-startup-id /home/ystanislavskyi/.config/polybar/launch.sh &
+exec_always --no-startup-id /$HOME/.config/polybar/launch.sh &
 
 exec --no-startup-id /usr/bin/feh --bg-fill /home/ystanislavskyi/Downloads/sunset.jpg 
 
-bindsym $mod+l exec i3lock-fancy 
+bindsym $mod+l exec i3lock 
 
 for_window [class=".*"] border pixel 2 
 
-bindsym $mod+Shift+w exec /home/ystanislavskyi/.config/rofi/rofi_wifi_menu.sh
-bindsym $mod+Shift+p exec /home/ystanislavskyi/.config/rofi/rofi_power_menu.sh
+bindsym $mod+Shift+w exec /$HOME/.config/rofi/rofi_wifi_menu.sh
 
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+
 #volume controls 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
@@ -134,8 +136,6 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 exec_always --no-startup-id dropbox start
 
-assign [class="KeePassXc"] workspace 9
 
 ## Clipboard Screenshots
 bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
-
