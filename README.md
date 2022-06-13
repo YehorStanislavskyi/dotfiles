@@ -20,6 +20,7 @@ sudo apt install flatpak
 ```
 ### Зависимости i3 для моего конфига 
 
+- lm-sensors
 - maim 
 - xclip
 - polybar
@@ -28,7 +29,7 @@ sudo apt install flatpak
 
 для дэбиан подобных
 ````
-sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome 
+sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome lm-sensors
 ````
 
 ### tap to click i3 или другой x11 оконный менеджер
