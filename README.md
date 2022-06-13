@@ -26,10 +26,11 @@ sudo apt install flatpak
 - polybar
 - rofi
 - font-font-awesome
+- brightnessctrl
 
 для дэбиан подобных
 ````
-sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome lm-sensors
+sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome lm-sensors brightnessctrl
 ````
 
 ### tap to click i3 или другой x11 оконный менеджер
@@ -45,7 +46,7 @@ EndSection
 
 EOF
 ```
-suspend on lid close
+###suspend on lid close
 ```
 sudo vim /etc/systemd/logind.conf
 
@@ -60,4 +61,21 @@ HoldoffTimeoutSec=30s
 IdleAction=hybrid-sleep
 IdleActionSec=30min
 ...
+```
+
+### i3 яркость экрана 
+```
+sudo usermod -a -G video $LOGNAME
+
+sudo touch /usr/share/X11/xorg.conf.d/20-intel.conf 
+```
+Вставить в этот файл код ниже, после перелогиниться 
+```
+Section "Device"
+        Identifier  "card0"
+        Driver      "intel"
+        Option      "Backlight"  "intel_backlight"
+        BusID       "PCI:0:2:0"
+EndSection
+
 ```
