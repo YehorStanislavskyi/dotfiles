@@ -21,11 +21,11 @@ sudo apt install flatpak
  ```
 ### Зависимости i3 
 
-maim 
-xclip
-polybar
-rofi
-font-font-awesome
+- maim 
+- xclip
+- polybar
+- rofi
+- font-font-awesome
 
 
 
