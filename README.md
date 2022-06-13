@@ -45,4 +45,19 @@ EndSection
 
 EOF
 ```
+suspend on lid close
+```
+sudo vim /etc/systemd/logind.conf
 
+[Login]
+...
+HandlePowerKey=hibernate
+#HandleSuspendKey=suspend
+#HandleHibernateKey=hibernate
+HandleLidSwitch=suspend
+...
+HoldoffTimeoutSec=30s
+IdleAction=hybrid-sleep
+IdleActionSec=30min
+...
+```
