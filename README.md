@@ -26,7 +26,10 @@ sudo apt install flatpak
 - rofi
 - font-font-awesome
 
-
+для дэбиан подобных
+````
+sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome 
+````
 
 ### tap to click i3 или другой x11 оконный менеджер
 
