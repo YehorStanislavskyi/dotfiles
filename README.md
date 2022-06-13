@@ -17,8 +17,7 @@ sudo apt install vim -y && echo -e "set number\nset cursorline\nsyntax" on > .vi
 sudo add-apt-repository ppa:flatpak/stable
 sudo apt update
 sudo apt install flatpak
-    
- ```
+```
 ### Зависимости i3 для моего конфига 
 
 - maim 
