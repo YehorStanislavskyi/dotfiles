@@ -1,141 +1,205 @@
-set $mod Mod4
+[colors]
+background = #ebdbb2
+buffer = #4c566a
+foreground = #282828
+color1 = #ECEFF4
+color2 = #8FBCBB
+color3 = #88C0D0
+color4 = #81A1C1
+urgent = #BF616A
+warning = #D08770
+notify = #EBCB8B
+success = #A3BE8C
+function = #B48EAD
+yellow = #d79921
+blue = #458588
+red = #cc241d
+purple = #b16286
+orange = #af3a03
+aqua = #689d6a
 
-#switch keyboard layout via capslock
-exec_always "setxkbmap -model pc104 -layout us,ru -variant -option grp:caps_toggle"
+[bar/main]
+width = 100%
+height = 30
+#radius-bottom = 14
+enable-ipc = true
+fixed-center = true
+override-redirect = false 
+wm-restack = i3
 
-default_border pixel 0
-default_floating_border normal
+foreground = ${colors.background}
+background = ${colors.foreground}
 
-font pango:DejaVu Sans Mono 8
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+modules-left = i3
+modules-right = backlight battery pulseaudio memory cpu xkeyboard network date time powermenu 
 
-# start a terminal
-bindsym $mod+Return exec kitty
-# kill focused window
-bindsym $mod+Shift+q kill
+font-0 = Fira Code:style=bold:size=13;3
+font-1 = M+ 1mn:style=bold:pixelsize=22;2
+font-2 = Siji:pixelsize=13;1
+font-3 = Font Awesome 5 Free Solid:pixelsize=13;2
+font-4 = Font Awesome 5 Free:pixelsize=13;3
+font-5 = Font Awesome 5 Brands:pixelsize=13;3
+font-6 = FontAwesome:pixelsize=13;3
+font-7 = Iosevka Nerd Font:style=Medium:size=13;3
+font-8 = PowerlineSymbols:style=Medium:size=13;3
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+; focused = Active workspace on focused monitor
+label-focused = 
+;label-focused = 
+label-focused-foreground = ${colors.background}
+label-focused-padding = 1
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+; unfocused = Inactive workspace on any monitor
+label-unfocused = 
+label-unfocused-foreground = ${colors.background}
+label-unfocused-padding = 1
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h  exec notify-send 'split in horizontal orientation'
-
-# split in vertical orientation
-bindsym $mod+v split v exec notify-send 'split in vertical orientation'
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
-
-# change container layout (stacked, tabbed, toggle split)
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# rofi and rofimenu 
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "hack 14"
-
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
+; urgent = Workspace with urgency hint set
+label-urgent = 
+;label-urgent = 
+label-urgent-foreground = #ff586f
+label-urgent-padding = 1
 
 
-exec_always --no-startup-id /$HOME/.config/polybar/launch.sh &
-
-exec --no-startup-id /usr/bin/feh --bg-fill /home/ystanislavskyi/Downloads/sunset.jpg 
-
-bindsym $mod+l exec i3lock 
-
-for_window [class=".*"] border pixel 2 
-
-bindsym $mod+Shift+w exec /$HOME/.config/rofi/rofi_wifi_menu.sh
+[module/date]
+type = internal/date
+date = " %a, %d %b %Y"
+label =  %date%
+label-background = ${colors.foreground}
+label-foreground = ${colors.red}
+label-padding = 2
 
 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+[module/time]
+type = internal/date
+time =  %r
+label = "%time%"
+label-background = ${colors.foreground}
+label-foreground = ${colors.yellow}
+label-padding = 2
 
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+label-layout =  %layout%
+label-layout-foreground = ${colors.primary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.red}
 
 
-#volume controls 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
 
-exec_always --no-startup-id dropbox start
+[module/memory]
+type = internal/memory
+interval = 2
+#format-prefix = " "
+label =  %gb_used%
+format-background = ${colors.foreground}
+format-foreground = ${colors.blue}
+format-padding = 2
+
+[module/backlight]                                   
+type = internal/backlight
+card = intel_backlight
+format = <label>
+label = %percentage%%
+label-padding =2  
+format-background = ${colors.foreground} 
+format-foreground = ${colors.purple}
 
 
-## Clipboard Screenshots
-bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 5
+label-volume = " %percentage%%"
+format-volume-foreground = ${colors.aqua}
+format-volume-background = ${colors.foreground}
+format-volume-padding = 2
+label-muted = " 0%"
+format-muted-foreground = ${colors.background}
+format-muted-background = #e5746a
+format-muted-padding = 2
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+label = %percentage:2%%
+;format-prefix = ""
+;format-prefix-background = ${colors.purple}
+format-background = ${colors.foreground} 
+format-foreground = ${colors.purple}
+format-padding = 2
+
+
+[module/powermenu]
+type = custom/menu
+
+format-foreground = ${colors.red}
+format-background = ${colors.xcolor0}
+
+label-open = " "
+label-open-font = 4
+label-close = "  "
+label-close-foreground = ${colors.green}
+label-separator = "/ "
+label-separator-foreground = ${colors.green}
+
+; reboot
+menu-0-1 = 
+menu-0-1-exec = systemctl reboot
+menu-0-1-foreground = ${colors.yellow}
+; shutdown
+menu-0-0 = " "
+menu-0-0-exec = systemctl poweroff
+menu-0-0-foreground = ${colors.red}
+                                         
+
+
+
+#[module/temperature]
+#type = internal/temperature
+#thermal-zone = 1
+
+#format = <ramp> <label>
+#format-background = ${colors.background}
+#format-foreground = ${colors.foreground}
+#format-padding = 2
+#label = %temperature-c%
+
+#ramp-0 = "" 
+#ramp-1 = "" 
+#ramp-2 = "" 
+
+
+[module/network]
+type = internal/network
+interface = wlp60s0
+#udspeed-minwidth = 3
+label-connected = "   %essid%  " 
+label-connected-foreground = ${colors.background}
+label-connected-background = ${colors.foreground}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+label-full = %percentage_raw%%
+label-charging = BAT %percentage_raw%%  
+label-discharging = BAT %percentage_raw%%  
+format-full =  <label-full>
+format-charging =  <label-charging>
+format-discharging = <label-discharging>
+format-discharing-padding = 2 
+label-charging-padding = 2
+label-full-padding = 2
