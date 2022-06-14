@@ -1,8 +1,7 @@
 # .config
 
 
-!([http://url/to/img.png](https://github.com/YehorStanislavskyi/.config/blob/main/screenshots/photo_2022-06-14_11-15-50.jpg))
-
+!([https://github.com/YehorStanislavskyi/.config/blob/main/screenshots/photo_2022-06-14_11-15-50.jpg]
 
 
 файлы конфигураци
