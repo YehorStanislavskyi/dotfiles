@@ -2,7 +2,7 @@
 
 
 ![desktop](https://github.com/YehorStanislavskyi/.config/blob/main/screenshots/photo_2022-06-14_11-15-50.jpg)
-
+![desktop2](https://github.com/YehorStanislavskyi/.config/blob/main/screenshots/photo_2022-06-14_11-21-21.jpg)
 
 файлы конфигураци
 
