@@ -1,5 +1,10 @@
 # .config
 
+
+!(http://url/to/img.png)
+
+
+
 файлы конфигураци
 
 ### vim install 
