@@ -1,5 +1,10 @@
 set $mod Mod4
-set $dunstify $dunstify
+set $dunstify dunstify -t 900
+
+gaps inner 6
+gaps outer 2
+smart_gaps on
+
 
 exec --no-startup-id xsetroot -solid "#282828"
 
@@ -138,7 +143,9 @@ exec_always --no-startup-id dropbox start
 
 
 ## Clipboard Screenshots
-bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png && dunstify -t 9
+bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png && $dunstify 'select screenshot copy'
+bindsym Control+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png && $dunstify 'full display screenshot copy'
+
 
 
 
