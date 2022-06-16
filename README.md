@@ -1,5 +1,5 @@
 # .config
-
+![des](https://github.com/YehorStanislavskyi/dotfiles/blob/main/screenshots/photo_2022-06-16_23-38-43.jpg)
 
 ![desktop2]([https://github.com/YehorStanislavskyi/.config/blob/main/screenshots/photo_2022-06-16_23-38-43.jpg])
 ![notify](https://github.com/YehorStanislavskyi/.config/blob/main/screenshots/photo_2022-06-14_15-01-29.jpg)
