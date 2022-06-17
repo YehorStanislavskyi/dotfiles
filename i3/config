@@ -1,12 +1,14 @@
 set $mod Mod4
 set $dunstify dunstify -t 900
 
-gaps inner 6
-gaps outer 2
+gaps inner 7
+gaps outer 3
 smart_gaps on
+smart_borders on
+exec_always feh --bg-fill ~/Downloads/nubrandelth61.png 
 
 
-exec --no-startup-id xsetroot -solid "#282828"
+exec_always xautolock -time 1 -locker "xset dpms force off" -notify 5 -notifier "i3lock -n -c 0E1621"
 
 #switch keyboard layout via capslock
 exec_always "setxkbmap -model pc104 -layout us,ru -variant -option grp:caps_toggle"
