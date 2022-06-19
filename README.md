@@ -38,6 +38,7 @@ sudo apt install flatpak
 
 - lm-sensors
 - maim 
+- feh
 - xclip
 - polybar
 - rofi
@@ -46,7 +47,7 @@ sudo apt install flatpak
 
 для дэбиан подобных
 ````
-sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome lm-sensors brightnessctrl
+sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome lm-sensors brightnessctrl feh
 ````
 
 ### tap to click i3 или другой x11 оконный менеджер
