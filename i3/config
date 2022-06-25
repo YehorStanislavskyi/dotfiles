@@ -1,14 +1,13 @@
 set $mod Mod4
 set $dunstify dunstify -t 900
 
+exec --no-startup-id xsetroot -solid "#282828"
+
+
 gaps inner 7
 gaps outer 3
-smart_gaps on
 smart_borders on
-exec_always feh --bg-fill ~/Downloads/nubrandelth61.png 
-
-
-exec_always xautolock -time 1 -locker "xset dpms force off" -notify 5 -notifier "i3lock -n -c 0E1621"
+#exec_always feh --bg-fill ~/Downloads/nubrandelth61.png 
 
 #switch keyboard layout via capslock
 exec_always "setxkbmap -model pc104 -layout us,ru -variant -option grp:caps_toggle"
@@ -56,8 +55,6 @@ bindsym $mod+v split v exec $dunstify 'split in vertical orientation'
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen exec $dunstify "fullscreen"
 
-# change container layout (stacked, tabbed, toggle split)
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle exec $dunstify "floating"
 
@@ -68,7 +65,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # rofi and rofimenu 
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "hack 14"
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "Iosevka Nerd 16"
 
 # switch to workspace
 bindsym $mod+1 workspace 1 
@@ -97,7 +94,7 @@ bindsym $mod+Shift+r restart exec $dunstify 'reloaded'
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# resize window 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -135,7 +132,6 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-
 #volume controls 
 bindsym XF86AudioRaiseVolume exec /$HOME/scripts/volume.sh up 
 bindsym XF86AudioLowerVolume exec /$HOME/scripts/volume.sh down 
@@ -144,19 +140,11 @@ bindsym XF86AudioMute exec /$HOME/scripts/volume.sh mute
 exec_always --no-startup-id dropbox start
 
 
+#Rofi display menu
+bindsym $mod+shift+d exec ~/scripts/display.sh
+
 ## Clipboard Screenshots
 bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png && $dunstify 'select screenshot copy'
 bindsym Control+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png && $dunstify 'full display screenshot copy'
-
-
-
-
-
-
-
-
-
-
-
 
 
