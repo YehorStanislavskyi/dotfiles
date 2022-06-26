@@ -1,5 +1,5 @@
 # .config
-![des](https://github.com/YehorStanislavskyi/dotfiles/blob/main/screenshots/photo_2022-06-16_23-38-43.jpg)
+![des](https://github.com/YehorStanislavskyi/dotfiles/blob/main/screenshots/photo_2022-06-26_22-18-44.jpg)
 
 файлы конфигураци
 
