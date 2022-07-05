@@ -2,12 +2,8 @@ set $mod Mod4
 set $dunstify dunstify -t 900
 
 exec --no-startup-id xsetroot -solid "#282828"
+exec_always nm-applet
 
-
-gaps inner 7
-gaps outer 3
-smart_borders on
-#exec_always feh --bg-fill ~/Downloads/nubrandelth61.png 
 
 #switch keyboard layout via capslock
 exec_always "setxkbmap -model pc104 -layout us,ru -variant -option grp:caps_toggle"
@@ -65,12 +61,12 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # rofi and rofimenu 
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "Iosevka Nerd 16"
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "hack 19"
 
 # switch to workspace
 bindsym $mod+1 workspace 1 
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+2 workspace 2 
+bindsym $mod+3 workspace 3 
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -117,14 +113,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id /$HOME/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
-exec --no-startup-id /usr/bin/feh --bg-fill /home/ystanislavskyi/Downloads/sunset.jpg 
-
-bindsym $mod+l exec i3lock-fancy 
+exec feh --bg-fill ~/Downloads/gruv-material-texture.png 
 
 for_window [class=".*"] border pixel 2 
 
+
+bindsym $mod+Shift+p exec ~/.config/rofi/rofi_power_menu.sh
 bindsym $mod+Shift+w exec /$HOME/.config/rofi/rofi_wifi_menu.sh
 
 #screen light
@@ -139,12 +135,16 @@ bindsym XF86AudioMute exec /$HOME/scripts/volume.sh mute
 
 exec_always --no-startup-id dropbox start
 
-
 #Rofi display menu
 bindsym $mod+shift+d exec ~/scripts/display.sh
+
+bindsym $mod+l exec i3lock -i ~/Downloads/gruv-material-texture.png && systemctl suspend
 
 ## Clipboard Screenshots
 bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png && $dunstify 'select screenshot copy'
 bindsym Control+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png && $dunstify 'full display screenshot copy'
+
+
+
 
 
