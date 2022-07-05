@@ -37,6 +37,7 @@ sudo apt install flatpak
 ### Зависимости i3 для моего конфига 
 
 - lm-sensors
+- [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)
 - maim 
 - feh
 - xclip
