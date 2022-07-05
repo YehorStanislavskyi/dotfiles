@@ -41,8 +41,8 @@ sudo apt install flatpak
 - maim 
 - feh
 - xclip
-- polybar
-- rofi
+- [polybar](https://github.com/polybar/polybar)
+- [rofi](https://github.com/davatorium/rofi)
 - font-font-awesome
 - brightnessctrl
 
