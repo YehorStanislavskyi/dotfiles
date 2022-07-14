@@ -1,5 +1,7 @@
 #! /bin/sh
 
+
+
 chosen=$(printf "  Power Off\n  Restart\n  Lock" | rofi -no-fixed-num-lines -dmenu -i -theme-str )
 
 case "$chosen" in
