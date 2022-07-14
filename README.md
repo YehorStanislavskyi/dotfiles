@@ -23,7 +23,7 @@ sudo ninja install
 ### vim install 
 
 ```
-sudo apt install vim -y && echo -e "set number\nset cursorline\nsyntax" on > .vimrc
+sudo apt install vim-gtk -y && echo -e "set number\nset cursorline\nsyntax\nset clipboard=unnamedplus" on > .vimrc
 ```
  ### dropbox 
  ```
@@ -50,7 +50,7 @@ sudo apt install flatpak
 
 для дэбиан подобных
 ````
-sudo apt isntall - y maim xclip polybar i3 rofi fonts-font-awesome lm-sensors brightnessctrl feh
+sudo apt isntall - y maim xclip polybar rofi fonts-font-awesome lm-sensors brightnessctrl feh
 ````
 
 ### tap to click i3 или другой x11 оконный менеджер
