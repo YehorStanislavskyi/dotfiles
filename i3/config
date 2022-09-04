@@ -1,43 +1,53 @@
+# переменные 
 set $mod Mod4
+set $alt Mod1
 set $dunstify dunstify -t 900
 
-exec --no-startup-id xsetroot -solid "#282828"
+# запуск аплетов 
 exec_always nm-applet
+exec_always blueman-applet 
 
-
-#switch keyboard layout via capslock
+# смена раскладки с помощью капса. Стандартные функции капса на shift+caps
 exec_always "setxkbmap -model pc104 -layout us,ru -variant -option grp:caps_toggle"
+exec_always picom
+
+exec  feh --bg-scale Downloads/TGUawH.jpg
+# гапсы 
+smart_gaps on
+smart_borders on
 
 default_border pixel 0
 default_floating_border normal
 
+# шрифт самого i3. Не юзается, но удалять не стоит. 
 font pango:DejaVu Sans Mono 8
-# Use Mouse+$mod to drag floating windows to their wanted position
+
+# исполььзовать мышку + мод для перетаскивания плавающих окнон
 floating_modifier $mod
 
-# start a terminal
+# запуск терминала для обычных задач
 bindsym $mod+Return exec kitty
-# kill focused window
+
+# запуск терминала гном для ssh 
+bindsym $mod+Shift+Return exec gnome-terminal
+
+# закрыть окно
 bindsym $mod+Shift+q kill
 
-# change container layout (stacked, tabbed, toggle split)
+# изменить контейнер слоя (стак, таб, сплит убрать)
 bindsym $mod+s layout stacking exec $dunstify "stacking"
 bindsym $mod+w layout tabbed exec $dunstify "tabbed"
 bindsym $mod+e layout toggle split exec $dunstify "default"
 
-# alternatively, you can use the cursor keys:
+# альтернативы перемещения фокуса между окнами
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "hack 19"
+bindsym $alt+d exec --no-startup-id ~/scripts/dmenu_run_history 
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -48,22 +58,7 @@ bindsym $mod+h split h  exec $dunstify 'split in horizontal orientation'
 
 # split in vertical orientation
 bindsym $mod+v split v exec $dunstify 'split in vertical orientation'
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen exec $dunstify "fullscreen"
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle exec $dunstify "floating"
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle 
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# rofi and rofimenu 
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "hack 19"
-
-#navigate workspaces next / previous
+# навигация между тэгами
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
@@ -76,7 +71,7 @@ set $ws6 6
 set $ws7 7
 set $ws8 8
 
-# switch to workspace
+# перемещение между тэгами
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -86,7 +81,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 
-# Move focused container to workspace
+# переместить окно на котором фокус в определённый тэг
 bindsym $mod+Ctrl+1 move container to workspace $ws1
 bindsym $mod+Ctrl+2 move container to workspace $ws2
 bindsym $mod+Ctrl+3 move container to workspace $ws3
@@ -96,7 +91,7 @@ bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
 
-# Move to workspace with focused container
+# переместить окно на котором фокус в определенный тэг и перейти к нему
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
@@ -106,13 +101,19 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
+#переместить тэг на другой монитор
+bindsym $mod+Ctrl+Shift+Left  move workspace to output left
+bindsym $mod+Ctrl+Shift+Right move workspace to output right
+bindsym $mod+Ctrl+Shift+Up move workspace to output up
+bindsym $mod+Ctrl+Shift+Down move workspace to output down
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# перезагрузить конфиг
 bindsym $mod+Shift+r restart exec $dunstify 'reloaded'  
-# exit i3 (logs you out of your X session)
+
+# закончить сессию i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window 
+# включить режим изменения размера окна 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -120,7 +121,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 20 px 
@@ -137,37 +138,35 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
-exec feh --bg-fill ~/Downloads/gruv-material-texture.png 
-
 for_window [class=".*"] border pixel 2 
 
+for_window [class="Blueman-manager"] floating enable, resize set 600px 500px
 
-bindsym $mod+Shift+p exec ~/.config/rofi/rofi_power_menu.sh
-bindsym $mod+Shift+w exec /$HOME/.config/rofi/rofi_wifi_menu.sh
+for_window [class="Mumble"] floating enable, resize set 400px 300px, move right -1px,move down 210px
 
-#screen light
+bindsym $mod+Shift+p exec ~/scripts/rofi_power_menu.sh
+
+# яркость экрана ноута
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-#volume controls 
-bindsym XF86AudioRaiseVolume exec /$HOME/scripts/volume.sh up 
-bindsym XF86AudioLowerVolume exec /$HOME/scripts/volume.sh down 
-bindsym XF86AudioMute exec /$HOME/scripts/volume.sh mute 
+# громкость звука
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master on 5%+ > /dev/null 
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master on 5%- > /dev/null 
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle > /dev/null
 
-exec_always --no-startup-id dropbox start
 
-#Rofi display menu
-bindsym $mod+shift+d exec ~/scripts/display.sh
+# запуск меню смены режима дисплея
+bindsym $mod+shift+d exec ~/scripts/display.sh &
 
-bindsym $mod+l exec i3lock -i ~/Downloads/gruv-material-texture.png && systemctl suspend
+# локскрин + сон 
+bindsym $mod+Control+l exec betterlockscreen -l &&  systemctl suspend 
+# локскрин 
+bindsym $mod+l exec betterlockscreen -l 
 
-## Clipboard Screenshots
+## скриншотилка
 bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png && $dunstify 'select screenshot copy'
 bindsym Control+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png && $dunstify 'full display screenshot copy'
 
-
-
-
-
-
+bindsym $mod+Print exec --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%s).png | xclip -selection clipboard -t image/png && $dunstify 'select screenshot save'
