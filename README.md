@@ -99,3 +99,12 @@ Section "Device"
 EndSection
 
 ```
+на amd процах
+```
+Section "OutputClass"
+	Identifier "AMDgpu"
+	MatchDriver "amdgpu"
+	Driver "amdgpu"
+EndSection
+
+```
