@@ -42,15 +42,16 @@ sudo apt install flatpak
 - [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen)
 - maim 
 - feh
+- picom
 - xclip
 - [polybar](https://github.com/polybar/polybar)
 - [rofi](https://github.com/davatorium/rofi)
-- font-font-awesome
-- brightnessctrl
+- fonts-font-awesome
+- brightnessctl
 
 для дэбиан подобных
 ````
-sudo apt isntall - y maim xclip polybar rofi fonts-font-awesome lm-sensors brightnessctrl feh
+sudo apt install - y picom maim xclip polybar rofi fonts-font-awesome lm-sensors brightnessctl feh ranger
 ````
 
 ### tap to click i3 или другой x11 оконный менеджер
