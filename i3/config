@@ -28,7 +28,8 @@ font pango:DejaVu Sans Mono 8
 # исполььзовать мышку + мод для перетаскивания плавающих окнон
 floating_modifier $mod
 
-
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
 
 # запуск терминала для обычных задач
 bindsym $mod+Return exec kitty
