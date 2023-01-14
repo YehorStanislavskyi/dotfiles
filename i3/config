@@ -2,28 +2,33 @@
 set $mod Mod4
 set $alt Mod1
 set $dunstify dunstify -t 900
+gaps inner 8
+
 
 # запуск аплетов 
 exec_always nm-applet
 exec_always blueman-applet 
+exec --no-startup-id xsetroot -solid "#273238"
 
+
+exec feh --bg-scale /home/y-stanislavskyi/Downloads/19a97b1db5709c9a0cdaf408adfcc1b3325c74c6.jpeg
 # смена раскладки с помощью капса. Стандартные функции капса на shift+caps
 exec_always "setxkbmap -model pc104 -layout us,ru -variant -option grp:caps_toggle"
-exec_always picom
 
 exec  feh --bg-scale Downloads/TGUawH.jpg
 # гапсы 
-smart_gaps on
-smart_borders on
-
 default_border pixel 0
 default_floating_border normal
+
+exec_always picom 
 
 # шрифт самого i3. Не юзается, но удалять не стоит. 
 font pango:DejaVu Sans Mono 8
 
 # исполььзовать мышку + мод для перетаскивания плавающих окнон
 floating_modifier $mod
+
+
 
 # запуск терминала для обычных задач
 bindsym $mod+Return exec kitty
@@ -152,11 +157,12 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # громкость звука
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master on 5%+ > /dev/null 
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master on 5%- > /dev/null 
+bindcode 74 exec amixer -D pulse sset Master on 5%+ > /dev/null 
+bindcode 73 exec amixer -D pulse sset Master on 5%- > /dev/null 
+
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle > /dev/null
 
-
+exec_always --no-startup-id conky
 # запуск меню смены режима дисплея
 bindsym $mod+shift+d exec ~/scripts/display.sh &
 
