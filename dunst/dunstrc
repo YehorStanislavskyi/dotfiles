@@ -25,9 +25,6 @@
     icon_folders = /usr/share/icons/elementary/actions/16/
 
 
-[frame]
-    width = 1
-    color = "#b8c6cd"
 
 [shortcuts]
     close = ctrl+space
@@ -36,16 +33,16 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#273238"
+    background = "#6f2164"
     foreground = "#f8f8f2"
     timeout = 5
 
 [urgency_normal]
-    background = "#273238"
+    background = "#6f2164"
     foreground = "#f8f8f2"
     timeout = 20
 
 [urgency_critical]
-    background = "#273238"
+    background = "#6f2164"
     foreground = "#f8f8f2"
     timeout = 0
